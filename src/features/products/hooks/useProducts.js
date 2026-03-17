@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getProducts } from "../services/productService";
+import { deleteProductById, getProducts } from "../services/productService";
 
 export const useProducts = () => {
   const [products, setProducts] = useState([]);
@@ -8,6 +8,8 @@ export const useProducts = () => {
 
   const loadProducts = async () => {
     try {
+      setLoading(true);
+      setError("");
       const data = await getProducts();
       setProducts(data);
     } catch (err) {
@@ -17,6 +19,15 @@ export const useProducts = () => {
     }
   };
 
+  const removeProduct = async (id) => {
+    try {
+      await deleteProductById(id);
+      setProducts((prev) => prev.filter((p) => p._id !== id));
+    } catch (err) {
+      setError("Error al eliminar el producto")
+    }
+  }
+
   useEffect(() => {
     loadProducts();
   }, []);
@@ -25,6 +36,7 @@ export const useProducts = () => {
     products,
     loading,
     error,
-    reload: loadProducts
+    reload: loadProducts,
+    removeProduct
   };
 };
