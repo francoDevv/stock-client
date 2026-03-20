@@ -5,11 +5,14 @@ import EditProductPage from "../features/products/pages/EditProductPage.jsx"
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<ProductPage></ProductPage>}></Route>
-      <Route path="/products/new" element={<CreateProductPage></CreateProductPage>}></Route>
-      <Route path="/products/edit/:id" element={<EditProductPage></EditProductPage>}></Route>
-    </Routes>
+    <div className="container">
+      <h1 className="title">Stock Manager</h1>
+      <Routes>
+        <Route path="/" element={<ProductPage />}></Route>
+        <Route path="/products/new" element={<CreateProductPage />}></Route>
+        <Route path="/products/edit/:id" element={<EditProductPage />}></Route>
+      </Routes>
+    </div>
   )
 }
 

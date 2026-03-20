@@ -26,10 +26,10 @@ const ProductTable = ({ products, onDelete }) => {
             <td>{product.category}</td>
             <td>
               <Link to={`/products/edit/${product._id}`}>
-                <button>Editar</button>
+                <button className="edit">Editar</button>
               </Link>
 
-              <button onClick={() => {
+              <button className="delete" onClick={() => {
                 const confirmDelete = window.confirm("¿Seguro que querés eliminar este producto?");
                 if (confirmDelete) {
                   onDelete(product._id)
