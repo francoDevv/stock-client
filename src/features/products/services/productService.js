@@ -1,6 +1,6 @@
 import axios from "axios";
 
-https://stock-api-nps0.onrender.com/products
+const API_URL = `${import.meta.env.VITE_API_URL}/products`;
 
 export const getProducts = async () => {
     const response = await axios.get(API_URL);
