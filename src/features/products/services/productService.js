@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3000/products";
+https://stock-api-nps0.onrender.com/products
 
 export const getProducts = async () => {
     const response = await axios.get(API_URL);
